@@ -1,0 +1,15 @@
+{
+  "name": "20180529",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "x0": "x0 src -o"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@compositor/x0": "^5.0.3"
+  }
+}
