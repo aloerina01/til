@@ -13,3 +13,10 @@
   * 各コンポーネント名のページに遷移するとComponentが表示される
 * playbookとして使えるかも
 
+CLI Options
+```
+-o --open       Open dev server in default browser
+-p --port       Custom port for dev server
+-t --template   Path to custom HTML template
+--webpack       Path to custom webpack configuration
+```
