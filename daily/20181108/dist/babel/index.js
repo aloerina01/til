@@ -15,14 +15,19 @@ function () {
     _classCallCheck(this, Executor);
 
     this._name = myName || '';
-    this._messages = ['Hello', 'Good morning', 'See you'];
+
+    for (var _len = arguments.length, messages = new Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
+      messages[_key - 1] = arguments[_key];
+    }
+
+    this._messages = ['Hello', 'Good morning', 'See you'].concat(messages);
   }
 
   _createClass(Executor, [{
     key: "execute",
     value: function execute() {
       var message = this.messages.find(function (each) {
-        return each.includes('H');
+        return each.includes('Hello');
       });
       console.log("".concat(message, ", ").concat(this.name, " !!"));
     }
@@ -45,7 +50,7 @@ function microTask(f) {
   return Promise.resolve().then(f);
 }
 
-var executor = new Executor('aloerina');
+var executor = new Executor('aloerina', 'Thank you');
 microTask(function () {
   return executor.execute();
 });
