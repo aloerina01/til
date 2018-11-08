@@ -1,11 +1,14 @@
 #!/bin/bash
 
 echo "build by babel"
-npm run build:b || exit 1
+babel index.js -d dist/babel || exit 1
 
 echo "build by webpack"
-npm run build:w || exit 1
+NODE_ENV=production webpack || exit 1
+
+babel_file="./dist/babel/index.js"
+webpack_file="./dist/webpack/index.js"
 
 printf "\e[37;40;1m\nResult\n"
-printf "  >>> babel build  : $(node ./dist/babel/index.js)\n"
-printf "  >>> webpack build: $(node ./dist/webpack/index.js)\e[m\n"
+printf "  >>> babel build[$(ls -l $babel_file | awk '{ print $5; }') b]    : $(node $babel_file)\n"
+printf "  >>> webpack build[$(ls -l $webpack_file | awk '{ print $5; }') b] : $(node $webpack_file)\e[m\n"

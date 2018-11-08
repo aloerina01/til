@@ -5,11 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "./build_and_run.sh",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build:w": "NODE_ENV=production webpack",
-    "build:b": "babel index.js -d dist/babel",
-    "start:w": "node ./dist/webpack/index.js",
-    "start:b": "node ./dist/babel/index.js"
+    "run:w": "NODE_ENV=production webpack && node ./dist/webpack/index.js;",
+    "run:b": "babel index.js -d dist/babel && node ./dist/babel/index.js;"
   },
   "author": "",
   "license": "ISC",
