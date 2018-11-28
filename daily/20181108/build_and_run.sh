@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo "build by babel"
-babel index.js -d dist/babel || exit 1
+babel ./src/index.js -d dist/babel || exit 1
 
 echo "build by webpack"
 NODE_ENV=production webpack || exit 1

@@ -6,7 +6,7 @@
   "scripts": {
     "start": "./build_and_run.sh",
     "run:w": "NODE_ENV=production webpack && node ./dist/webpack/index.js;",
-    "run:b": "babel index.js -d dist/babel && node ./dist/babel/index.js;"
+    "run:b": "babel ./src/index.js -d dist/babel && node ./dist/babel/index.js;"
   },
   "author": "",
   "license": "ISC",

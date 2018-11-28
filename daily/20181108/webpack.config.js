@@ -6,7 +6,7 @@ const __DEV__ = __MODE__ === 'development';
 const config = {
   mode: __MODE__,
   entry: {
-    index: './index.js',
+    index: './src/index.js',
   },
   output: {
     path: path.resolve(__dirname, 'dist/webpack'),
