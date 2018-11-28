@@ -1,0 +1,26 @@
+{
+  "name": "20181228",
+  "version": "1.0.0",
+  "scripts": {
+    "raw": "node ./src/index.js",
+    "plain": "babel ./src/index.js -o ./dist/plain.js --config-file ./babel.config.plain.js && node ./dist/plain.js",
+    "usage": "babel ./src/index.js -o ./dist/usage.js --config-file ./babel.config.usage.js && node ./dist/usage.js",
+    "entry": "babel ./src/index.js -o ./dist/entry.js --config-file ./babel.config.entry.js && node ./dist/entry.js",
+    "webpack:p": "BUILT_INS=plain webpack && node ./dist/plain.js",
+    "webpack:u": "BUILT_INS=usage webpack && node ./dist/usage.js",
+    "webpack:e": "BUILT_INS=entry webpack && node ./dist/entry.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/cli": "^7.1.5",
+    "@babel/core": "^7.1.5",
+    "@babel/preset-env": "^7.1.5",
+    "babel-loader": "^8.0.4",
+    "webpack": "^4.25.1",
+    "webpack-cli": "^3.1.2"
+  },
+  "dependencies": {
+    "@babel/polyfill": "^7.0.0"
+  }
+}
