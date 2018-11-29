@@ -15,10 +15,13 @@ for (const each in obj) {
   console.log(`${obj[each]}.prototype.finally :`, obj[each].finally);
   console.log(`${obj[each]}.isArray           :`, obj[each].isArray);
 }
+// すべてpolyfillが入った
 
 console.log('\n------verify 2-------');
-console.log(eval('new WeakSet()')); // さすがにevalの中身のpolyfillはusage効かない
-console.log(new WeakSet());
+console.log(eval('new WeakSet()')); // さすがにevalの中身のpolyfillはusage効かなかった
+// console.log(new WeakSet());
+
+
 
 // // console.log('\n------verify 2-------');
 // // const array = ['aaa', 'bbb', 'ccc'];
