@@ -2,6 +2,10 @@
 
 // import extra from './extra';
 
+// require("core-js/modules/es6.string.includes");
+
+// import 'core-js/modules/es6.string.includes';
+
 // console.log('\n------verify 1-------');
 // const obj = {
 //   a: new Array(),
@@ -25,14 +29,22 @@ console.log(eval('new WeakSet()')); // さすがにevalの中身のpolyfillはus
 
 console.log('\n------verify 3-------');
 const func = value => {
-  console.log('value:', value);
-  console.log(value.includes); // この行を有効化した時点で、引数に何が来ようとarrayとstringのindludeがimportされる
+  n = 'includes';
+  console.log(value[n]);
 }
-const num = 1;
-const arr = [];
-const rand = [{}, 'str', []][Math.floor(Math.random() * 3)];
-func(num);
-func(arr);
-func(rand);
+// この関数が呼び出されていなくても、arrayとstringのincludesのpolyfillが入る
 
-// extra();
+
+console.log('\n------verify 4-------');
+const callFunc = (funcName) => {
+  _value = {};  // funcNameにかかわらず、_valueの定義の仕方で挙動が変わる
+  console.log(_value[funcName]);
+}
+const getFuncName = () => {
+  return 'includes';
+}
+callFunc('includes');
+callFunc('inclu' + 'des');
+callFunc(getFuncName());
+
+

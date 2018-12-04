@@ -86,3 +86,36 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _bab
 /******/ });
 ```
 
+だいぶわかってきた。静的解析＆型推論で判断している、、ような感覚(厳密ではない)。関数みたいに実行時に解釈されるものはうまく判定されない。
+
+```js
+const getName = () => 'includes';
+
+
+```
+
+```js
+obj = {};
+let letObj = {};
+const constObj = {};
+
+obj['includes']      // polyfill入る
+letObj['includes']   // polyfill入らない
+constObj['includes'] // polyfill入らない
+
+// ------------------------------------------
+
+name = 'includes';
+let letName = 'includes';
+const constName = 'includes';
+
+const val = {};
+
+val[name];       // polyfill入らない
+val[letName];    // polyfill入る
+val[constName];  // polyfill入る
+```
+
+あと、"usage"でも@babel/polyfillをnpm installしておかないとだめ。
+
+個別に自分でcore-jsをいれちゃうと、それとの重複判定みたいなのはされず、同じpolyfillが複数importされちゃう。
