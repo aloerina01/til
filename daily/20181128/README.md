@@ -90,8 +90,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _bab
 
 ```js
 const getName = () => 'includes';
-
-
+'str'[getName()];  // polyfill入らない
 ```
 
 ```js
