@@ -1,0 +1,19 @@
+{
+  "name": "20210917",
+  "version": "1.0.0",
+  "description": "esbuild のテスト",
+  "main": "index.js",
+  "scripts": {
+    "build": "esbuild ./src/index.tsx --bundle --outdir=dist",
+    "build:autojsx": "esbuild ./src/index.tsx --bundle --outfile=dist/index_autojsx.js --inject:./src/react-shim.ts"
+  },
+  "devDependencies": {
+    "@types/react": "^17.0.24",
+    "@types/react-dom": "^17.0.9",
+    "esbuild": "^0.12.28"
+  },
+  "dependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  }
+}
